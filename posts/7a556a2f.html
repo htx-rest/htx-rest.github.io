@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>美团2024届秋招笔试编程真题（2023.9.9） | 鲸落</title><meta name="author" content="鲸落"><meta name="copyright" content="鲸落"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 小美删字符小美有一个01串 s，当串中相邻字符相同时，可以将这两个相邻字符删除，得到一个新的串。一直删除到串中相邻字符均不相同。 现在，小美对这个串修改了恰好 k 次，一次修改可以将 &#39;1&#39; 修改为 &#39;0&#39; ，或者将 &#39;0&#39; 修改为 &#39;1&#39; 。 现在，小美想问你，将 s 修改恰好 k 次后，再进行删除操作，最终串的长度最短为多少？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="美团2024届秋招笔试编程真题（2023.9.9）">
+<meta property="og:url" content="https://htx-rest.github.io/posts/7a556a2f.html">
+<meta property="og:site_name" content="鲸落">
+<meta property="og:description" content="1 小美删字符小美有一个01串 s，当串中相邻字符相同时，可以将这两个相邻字符删除，得到一个新的串。一直删除到串中相邻字符均不相同。 现在，小美对这个串修改了恰好 k 次，一次修改可以将 &#39;1&#39; 修改为 &#39;0&#39; ，或者将 &#39;0&#39; 修改为 &#39;1&#39; 。 现在，小美想问你，将 s 修改恰好 k 次后，再进行删除操作，最终串的长度最短为多少？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_14.webp">
+<meta property="article:published_time" content="2023-09-14T02:31:54.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:31:16.183Z">
+<meta property="article:author" content="鲸落">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="秋招">
+<meta property="article:tag" content="2024届">
+<meta property="article:tag" content="笔试">
+<meta property="article:tag" content="编程真题">
+<meta property="article:tag" content="美团">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_14.webp"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://htx-rest.github.io/posts/7a556a2f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '美团2024届秋招笔试编程真题（2023.9.9）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-14 15:31:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4233300_xxm4hpxio1.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><div id="myscoll"></div><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">104</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youhuawenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="javascript:randomPost();"><i class="fa-fw iconfont icon-wode-zuji-copy"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxianyinpin"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/music/"><i class="fa-fw iconfont icon-tool"></i><span> 八音盒</span></a></li><li><a class="site-page child" href="/life/movies/"><i class="fa-fw iconfont icon-dianying"></i><span> 影院</span></a></li><li><a class="site-page child" href="/life/games/"><i class="fa-fw iconfont icon-youxi"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-baoxiang21"></i><span> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/box/gallery/"><i class="fa-fw iconfont icon-hualang"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/box/animation/"><i class="fa-fw iconfont icon-donghua"></i><span> 动画</span></a></li><li><a class="site-page child" href="/box/nav/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-tubiaozhizuomoban1"></i><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/social/fcircle/"><i class="fa-fw iconfont icon-iconfontzhizuobiaozhunbduan36"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/site/census/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站统计</span></a></li><li><a class="site-page child" href="/site/echarts/"><i class="fa-fw iconfont icon-tongji"></i><span> 文章统计</span></a></li><li><a class="site-page child" href="/site/time/"><i class="fa-fw iconfont icon-shalou"></i><span> 旧时光</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-geren"></i><span> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/personal/bb/"><i class="fa-fw iconfont icon-icon_liuyan"></i><span> 唠叨</span></a></li><li><a class="site-page child" href="/personal/love/"><i class="fa-fw iconfont icon-valentine_-email-love-message-send"></i><span> 恋爱小屋</span></a></li><li><a class="site-page child" href="/personal/about/"><i class="fa-fw iconfont icon-icon-lark-logo-old"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/default_cover_14.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="鲸落"><span class="site-name">鲸落</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youhuawenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="javascript:randomPost();"><i class="fa-fw iconfont icon-wode-zuji-copy"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxianyinpin"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/music/"><i class="fa-fw iconfont icon-tool"></i><span> 八音盒</span></a></li><li><a class="site-page child" href="/life/movies/"><i class="fa-fw iconfont icon-dianying"></i><span> 影院</span></a></li><li><a class="site-page child" href="/life/games/"><i class="fa-fw iconfont icon-youxi"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-baoxiang21"></i><span> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/box/gallery/"><i class="fa-fw iconfont icon-hualang"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/box/animation/"><i class="fa-fw iconfont icon-donghua"></i><span> 动画</span></a></li><li><a class="site-page child" href="/box/nav/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-tubiaozhizuomoban1"></i><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/social/fcircle/"><i class="fa-fw iconfont icon-iconfontzhizuobiaozhunbduan36"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/site/census/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站统计</span></a></li><li><a class="site-page child" href="/site/echarts/"><i class="fa-fw iconfont icon-tongji"></i><span> 文章统计</span></a></li><li><a class="site-page child" href="/site/time/"><i class="fa-fw iconfont icon-shalou"></i><span> 旧时光</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-geren"></i><span> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/personal/bb/"><i class="fa-fw iconfont icon-icon_liuyan"></i><span> 唠叨</span></a></li><li><a class="site-page child" href="/personal/love/"><i class="fa-fw iconfont icon-valentine_-email-love-message-send"></i><span> 恋爱小屋</span></a></li><li><a class="site-page child" href="/personal/about/"><i class="fa-fw iconfont icon-icon-lark-logo-old"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">美团2024届秋招笔试编程真题（2023.9.9）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-14T02:31:54.000Z" title="发表于 2023-09-14 10:31:54">2023-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-14T07:31:16.183Z" title="更新于 2023-09-14 15:31:16">2023-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E7%AC%94%E8%AF%95%E7%BC%96%E7%A8%8B%E7%9C%9F%E9%A2%98/">Java笔试编程真题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="美团2024届秋招笔试编程真题（2023.9.9）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-小美删字符"><a href="#1-小美删字符" class="headerlink" title="1 小美删字符"></a>1 小美删字符</h1><p>小美有一个01串 <em>s</em>，当串中相邻字符相同时，可以将这两个相邻字符删除，得到一个新的串。一直删除到串中相邻字符均不相同。</p>
+<p>现在，小美对这个串修改了恰好 <em>k</em> 次，一次修改可以将 <code>&#39;1&#39;</code> 修改为 <code>&#39;0&#39;</code> ，或者将 <code>&#39;0&#39;</code> 修改为 <code>&#39;1&#39;</code> 。</p>
+<p>现在，小美想问你，将 <em>s</em> 修改恰好 <em>k</em> 次后，再进行删除操作，最终串的长度最短为多少？</p>
+<p><em>输入描述</em></p>
+<script type="math/tex; mode=display">
+\begin{align*}
+&第一行，两个正整数n,k(1≤k≤n≤10^5)，表示字符串s的长度和修改次数。\\
+&第二行，一个长度为n的字符串s，保证s的字符要么是0，要么是1\\
+\end{align*}</script><p><em>输出描述</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k次修改后进行删除，最终串的长度最小值。</span><br></pre></td></tr></table></figure>
+<p><em>样例1</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入例子：</span><br><span class="line">4 1</span><br><span class="line">1010</span><br><span class="line">输出例子：</span><br><span class="line">2</span><br><span class="line">说明：</span><br><span class="line">将第二个字符修改为 1，然后最终的串为 10</span><br></pre></td></tr></table></figure>
+<p><em>样例2</em></p>
+<p><strong>输入</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入例子：</span><br><span class="line">6 3</span><br><span class="line">101111</span><br><span class="line">输出例子：</span><br><span class="line">0</span><br><span class="line">说明：</span><br><span class="line">修改第一个，第三个，第四个字符为0，最终相邻字符删除，最终的串中字符均可以删除。串成为一个空串。</span><br></pre></td></tr></table></figure>
+<p><em>思路：思维</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">相邻字符连续删除的场景，这是一个典型的栈的应用。</span><br><span class="line">所以用栈这么操作后，在栈中的元素必然是 101010... 或者 010101... 这样的</span><br><span class="line">这部分元素我们考虑修改，现在令栈中的元素构成的串为t 。</span><br><span class="line">t 的长度为偶数，则修改 t / 2 个即可。</span><br><span class="line">t 的长度为奇数，则必然是 1010...101 ，那么 &#x27;0&#x27; 的个数比 &#x27;1&#x27; 的个数少 1 。至多修改 ⌊2 / t⌋ 即可。</span><br><span class="line">考虑需要修改的次数为 cnt ，实际修改的次数为 k</span><br><span class="line">  k ≤ cnt ，则可以通过合适的修改后，可以再删除 2k 个 。</span><br><span class="line">  k &gt; cnt ，则修改 cnt 个后，可以再删除 2cnt 个。</span><br><span class="line">那么我们还需要修改 k−cnt 次 。</span><br><span class="line">  如果这个 k−cnt 是偶数，那么怎么修改都可以</span><br><span class="line">  如果这个 k−cnt 是奇数，那么相当于还需要修改 1 次 。</span><br><span class="line">  如果原串长度是奇数，那么再怎么删除都会剩下至少一个字符，所以把这k−cnt 修改那个剩下的字符即可。</span><br><span class="line">  如果原串长度是偶数，那么也只需要修改一个字符，此时必然是剩下两个字符。</span><br><span class="line">时间复杂度：O(n)</span><br></pre></td></tr></table></figure>
+<p><em>代码</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        int n = scanner.nextInt();</span><br><span class="line">        int k = scanner.nextInt();</span><br><span class="line">        scanner.nextLine(); // 读取换行符</span><br><span class="line"></span><br><span class="line">        String s = scanner.nextLine();</span><br><span class="line">        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">            int x = Character.getNumericValue(s.charAt(i));</span><br><span class="line">            if (stack.isEmpty() || stack.peek() != x) &#123;</span><br><span class="line">                stack.push(x);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int res = stack.size();</span><br><span class="line">        int cnt = stack.size() / 2;</span><br><span class="line"></span><br><span class="line">        if (cnt &gt;= k) &#123;</span><br><span class="line">            res -= k * 2;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            res -= cnt * 2;</span><br><span class="line"></span><br><span class="line">            // 可以全部转换一样的，但是需要考虑几种情况</span><br><span class="line">            // 如果剩余字符数是奇数，那么必然是一个，剩余的修改次数均给这个字符即可</span><br><span class="line">            if (res % 2 == 1) &#123;</span><br><span class="line">                // 什么都不做</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 否则剩余字符数为0，还有 k-cnt 次需要修改</span><br><span class="line">                // 如果这个是奇数，那么必然不行</span><br><span class="line">                // 如果是偶数，那么只要对一个字符修改偶数次即可</span><br><span class="line">                int ch = k - cnt;</span><br><span class="line">                if (ch % 2 == 1) &#123;</span><br><span class="line">                    res += 2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-小美数组构造"><a href="#2-小美数组构造" class="headerlink" title="2 小美数组构造"></a>2 小美数组构造</h1><p>小美有一个长度为 <em>n</em> 的数组 <em>a</em> ，下标从 1 开始，这个数组满足$a<em>i&lt;a</em>{i+1},(1≤i&lt;n)$。</p>
+<p>通过这个数组前后元素相减，得到了一个长度为 <em>n</em>−1 的数组 <em>b</em> 。</p>
+<p>$b<em>i=a</em>{i+1}−a_i(1≤i&lt;n)$</p>
+<p>现在，她想让你重新构造一个新的数组 <em>a</em> ，通过新的数组 <em>a</em> 得到的新的数组 <em>b</em> ，<strong>新的数组 *b* 中不同的元素数量尽可能多</strong>。</p>
+<p>小美对你构造出的新数组 <em>a</em> 有如下两个要求：</p>
+<ul>
+<li>$a<em>i&lt;a</em>{i+1}$</li>
+<li>$1≤a_i≤m$</li>
+</ul>
+<p>请你输出你构造出的新的数组 <em>a</em> ，任意一个满足要求的数组即可。</p>
+<p><em>输入描述</em></p>
+<script type="math/tex; mode=display">
+一行，两个整数n,m(1≤n≤m≤10^5)，表示数组的长度和数组元素的最大值。</script><p><em>输出描述</em></p>
+<script type="math/tex; mode=display">
+一行，n个整数，表示构造出的数组a，第i个数为a_i(1≤a_i≤m)。</script><p><em>样例</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入例子：</span><br><span class="line">3 10</span><br><span class="line">输出例子：</span><br><span class="line">1 5 10</span><br></pre></td></tr></table></figure>
+<p><em>思路：贪心</em></p>
+<script type="math/tex; mode=display">
+\begin{align*}
+&因为我们要使得差值的数不同的尽可能多，那么就是去考虑差值 1, 2, 3, ... 为多少。\\
+&那么 a_1必然为 1 ，a_2 = a_1 + 1, a_3 = a_2 + 2, ...a_i = a_{i - 1} + i,直到 a_{i - 1} + i > m停止。此外，你还要保证后续的每个差值都至少为 1 。\\
+&所以 a_i = a_{i - 1} + i 需要保证：\\
+&a_i ≤ m\\
+&a_{i + 1} > a_j(i ≤ j) 且 a_{j + 1} ≤ m\\
+&贪心地从小到大增加差值，直到增加差值后 a_i 及其之后的值不满足上述两个条件，则后面的差值均设置为 1 即可。\\
+&时间复杂度：O(n)\\
+\end{align*}</script><p><em>代码</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        int n = scanner.nextInt();</span><br><span class="line">        int m = scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; a = new ArrayList&lt;&gt;();</span><br><span class="line">        a.add(1);</span><br><span class="line"></span><br><span class="line">        int x = 1;</span><br><span class="line">        int y = n - 1;</span><br><span class="line"></span><br><span class="line">        while (y &gt; 0) &#123;</span><br><span class="line">            if (a.get(a.size() - 1) + x + y - 1 &lt;= m) &#123;</span><br><span class="line">                a.add(a.get(a.size() - 1) + x);</span><br><span class="line">                x++;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                a.add(a.get(a.size() - 1) + 1);</span><br><span class="line">            &#125;</span><br><span class="line">            y--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int num : a) &#123;</span><br><span class="line">            System.out.print(num + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-小美的子数组权值和"><a href="#3-小美的子数组权值和" class="headerlink" title="3 小美的子数组权值和"></a>3 小美的子数组权值和</h1><p>小美有一个长度为 <em>n</em> 的数组 <em>a</em> 。</p>
+<p>她对一个数组的权值定义为，这个数组中两个不同的不同下标 <em>i</em>,<em>j</em>(0≤<em>i</em>&lt;<em>j</em>&lt;<em>n</em>) ，所有 $a<em>i \oplus a_j$ 的和。<br>即 $\sum</em>{i=0}^{n-2} \sum_{j=i+1}^{n-1} a_i \oplus  a_j$</p>
+<p>现在小美想要问你，这个数组的所有连续子数组的权值之和是多少。</p>
+<p><em>输入描述</em></p>
+<script type="math/tex; mode=display">
+\begin{align*}
+&第一行，一个整数 n(1≤n≤10^5)，表示数组的长度。\\
+&第二行，n个整数，第i个整数为 a_i(1≤a_i≤10^9) 。\\
+\end{align*}</script><p><em>输出描述</em></p>
+<script type="math/tex; mode=display">
+一个整数，表示所有子数组的权值之和，答案对 10^9+7 取模</script><p><em>样例</em></p>
+<p><strong>输入</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入例子：</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">输出例子：</span><br><span class="line">10</span><br><span class="line">说明：</span><br><span class="line">对于子数组a[1,2] 来说，权值为 3</span><br><span class="line">对于子数组a[2,3] 来说，权值为 1</span><br><span class="line">对于子数组a[1,2,3] 来说，权值为 6</span><br><span class="line">3+1+6=10</span><br></pre></td></tr></table></figure>
+<p><em>思路：拆位</em></p>
+<script type="math/tex; mode=display">
+\begin{align*}
+&这里下标从 0 开始。\\
+&首先考虑两个元素对 a_i,a_j(i < j),在 (i+1)×(n−j) 个子数组中有贡献，最终我们是将所有异或和都加起来。\\
+&我们对于两个数异或值的每个二进制位单独来考虑。\\
+&枚举 a_i ，对于 a_i的第 k 个二进制位，对于答案有贡献，必然是 a_j的第 k 个二进制位与其异或值为 1 ，那么就是 a(i,k)=0,a(j,k)=1 或者 a(i,k)=1,a(j,k)=0 的情况 。\\
+&以 a(i,k)=0 为例，我们需要知道后续所有 a(j,k)=1 的 a_j与 a_i构成的子数组的数量。第 k 位对答案的贡献为 2^k。那么就是 (i+1)×(n−j) ，所以对于第 
+k 个二进制位为 1 的 a_j ，其可以把 n−j 存下来。\\
+&最后枚举到 a_i时，贡献即为：2^k \times (i + 1) \times \sum_{j=i+1,a(i,k)=1}^{n-1} (n-j)\\
+&时间复杂度：O(30n)\\
+\end{align*}</script><p><em>代码</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int mod = 1000000007;</span><br><span class="line"></span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        int n = sc.nextInt();</span><br><span class="line">        int[] a = new int[n];</span><br><span class="line"></span><br><span class="line">        for(int i = 0; i &lt; n; i++)&#123;</span><br><span class="line">            a[i] = sc.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        long ans = 0;</span><br><span class="line">        // 考虑每一位</span><br><span class="line">        for(int j = 29; j &gt;= 0; j--)&#123;</span><br><span class="line">            int[] cnt = new int[2];</span><br><span class="line">            int v = 1 &lt;&lt; j;</span><br><span class="line">            for(int i = n - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">                int b = (a[i] &gt;&gt; j) &amp; 1;</span><br><span class="line">                ans += 1L * cnt[1 - b] * (i + 1) % mod * v % mod;</span><br><span class="line">                ans %= mod;</span><br><span class="line"></span><br><span class="line">                cnt[b] += n - i;</span><br><span class="line">                cnt[b] %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://htx-rest.github.io">鲸落</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://htx-rest.github.io/posts/7a556a2f.html">https://htx-rest.github.io/posts/7a556a2f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://htx-rest.github.io" target="_blank">鲸落</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E7%A7%8B%E6%8B%9B/">秋招</a><a class="post-meta__tags" href="/tags/2024%E5%B1%8A/">2024届</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AF%95/">笔试</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E7%9C%9F%E9%A2%98/">编程真题</a><a class="post-meta__tags" href="/tags/%E7%BE%8E%E5%9B%A2/">美团</a></div><div class="post_share"><div class="social-share" data-image="https://source.fomal.cc/img/default_cover_14.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/assets/weplay.png" target="_blank"><img class="post-qr-code-img" src="/assets/weplay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/assets/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/assets/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/dd83adbe.html" title="海康威视2024届秋招一面（2023.9.14）"><img class="cover" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">海康威视2024届秋招一面（2023.9.14）</div></div></a></div><div class="next-post pull-right"><a href="/posts/61f68248.html" title="美团2024届秋招笔试第四场编程真题（2023.9.2）"><img class="cover" src="https://img0.baidu.com/it/u=4155835667,974645702&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=889&amp;h=500" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">美团2024届秋招笔试第四场编程真题（2023.9.2）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/860131f4.html" title="美团2024届秋招笔试第一场编程真题（2023.8.12）"><img class="cover" src="https://img0.baidu.com/it/u=4155835667,974645702&fm=253&fmt=auto&app=138&f=PNG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-13</div><div class="title">美团2024届秋招笔试第一场编程真题（2023.8.12）</div></div></a></div><div><a href="/posts/5b7a3f2a.html" title="美团2024届秋招笔试第三场编程真题（2023.8.26）"><img class="cover" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">美团2024届秋招笔试第三场编程真题（2023.8.26）</div></div></a></div><div><a href="/posts/f51f72fb.html" title="美团2024届秋招笔试第二场编程真题（2023.8.19）"><img class="cover" src="https://source.fomal.cc/img/default_cover_14.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">美团2024届秋招笔试第二场编程真题（2023.8.19）</div></div></a></div><div><a href="/posts/61f68248.html" title="美团2024届秋招笔试第四场编程真题（2023.9.2）"><img class="cover" src="https://img0.baidu.com/it/u=4155835667,974645702&fm=253&fmt=auto&app=138&f=PNG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-13</div><div class="title">美团2024届秋招笔试第四场编程真题（2023.9.2）</div></div></a></div><div><a href="/posts/dd83adbe.html" title="海康威视2024届秋招一面（2023.9.14）"><img class="cover" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">海康威视2024届秋招一面（2023.9.14）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鲸落</div><div class="author-info__description">随波不逐流</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">104</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/htx-rest"><i class="fab fa-github"></i><span>前往小窝</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/assets/wenxin.jpg" target="_blank" title="微信"><i class="iconfont icon-weixin" style="color: #24292e;"></i></a><a class="social-icon" href="/assets/weixingongzhonghao.jpg" target="_blank" title="微信公众号"><i class="iconfont icon-weixingongzhonghao" style="color: #24292e;"></i></a><a class="social-icon" href="https://res.abeim.cn/api/qq/?qq=1656855152" target="_blank" title="QQ"><i class="iconfont icon-QQ" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1656855152@qq.com" target="_blank" title="QQ邮箱"><i class="iconfont icon-youxiang" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">摸鱼中！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%B0%8F%E7%BE%8E%E5%88%A0%E5%AD%97%E7%AC%A6"><span class="toc-text">1 小美删字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%B0%8F%E7%BE%8E%E6%95%B0%E7%BB%84%E6%9E%84%E9%80%A0"><span class="toc-text">2 小美数组构造</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B0%8F%E7%BE%8E%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%9D%83%E5%80%BC%E5%92%8C"><span class="toc-text">3 小美的子数组权值和</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 鲸落</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_4233300_xxm4hpxio1.js"></script><script async src="/js/fps.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><script defer data-pjax src="/js/cat.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script defer src="/js/cursor.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="/js/title.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(http://p0.itc.cn/images03/20200525/332e1ea10c634cbfaf0dfc5b69d00a3c.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Docker/&quot;);" href="javascript:void(0);">Docker</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">Docker</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/377f4f7044fe49b0bb932f43ef4f4891.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Hexo魔改教程/&quot;);" href="javascript:void(0);">Hexo魔改教程</a><span class="categoryBar-list-count">12</span><span class="categoryBar-list-descr">Hexo魔改教程</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/0ed549edde2c4d5eaecc2824e753ca74.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/MySQL/&quot;);" href="javascript:void(0);">MySQL</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">MySQL</span></li><li class="categoryBar-list-item" style="background:url(http://p6.itc.cn/images03/20200525/8dedcdf6ace44a50a1deb6a9743821fe.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/面试题/&quot;);" href="javascript:void(0);">面试题</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">面试题</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/5f6cecf10ea04dec9a5d42bf9c4c3739.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/RabbitMQ/&quot;);" href="javascript:void(0);">RabbitMQ</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr">Redis</span></li><li class="categoryBar-list-item" style="background:url(http://p0.itc.cn/images03/20200525/332e1ea10c634cbfaf0dfc5b69d00a3c.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Redis/&quot;);" href="javascript:void(0);">Redis</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">Java笔试编程真题</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/377f4f7044fe49b0bb932f43ef4f4891.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Kafka/&quot;);" href="javascript:void(0);">Kafka</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">Java数据结构与算法</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/0ed549edde2c4d5eaecc2824e753ca74.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/面试/&quot;);" href="javascript:void(0);">面试</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(http://p6.itc.cn/images03/20200525/8dedcdf6ace44a50a1deb6a9743821fe.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Java笔试编程真题/&quot;);" href="javascript:void(0);">Java笔试编程真题</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Java数据结构与算法/&quot;);" href="javascript:void(0);">Java数据结构与算法</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.9.0" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-14</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试编程真题（2023.9.9）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img0.baidu.com/it/u=4155835667,974645702&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=889&amp;h=500" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第四场编程真题（2023.9.2）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-06</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第二场编程真题（2023.8.19）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-07</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第三场编程真题（2023.8.26）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img0.baidu.com/it/u=4155835667,974645702&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=889&amp;h=500" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第一场编程真题（2023.8.12）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt="">Java数据结构与算法</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt="">消息中间件面试题-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_300x168.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt="">kafka深入浅出，快速玩转分布式发布订阅消息系统</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt="">Redis面试题-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt="">Redis集群</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt="">Redis原理篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">Rabbitmq消息中间件（二）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">Rabbitmq消息中间件（一）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt="">MySQL面试篇-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt="">MySQL进阶篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt="">MySQL运维篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt="">MySQL基础篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt="">Docker安装OpenResty</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt="">Docker安装Canal</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt="">Centos7安装Docker</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt="">Redis高级篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_300x168.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt="">Redis实战篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-01</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt="">Redis基础篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

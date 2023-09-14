@@ -1,0 +1,750 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>海康威视2024届秋招一面（2023.9.14） | 鲸落</title><meta name="author" content="鲸落"><meta name="copyright" content="鲸落"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面试官：wait()和sleep()的区别候选人：wait() 和 sleep() 是在Java中用于线程控制的两个不同方法，它们有以下主要区别：  用法和目的： wait() 是一个实例方法，它用于使当前线程等待，直到另一个线程调用相同对象上的 notify() 或 notifyAll() 方法来唤醒它。wait() 主要用于线程之间的协作和同步。 sleep() 是一个静态方法，它使当前线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="海康威视2024届秋招一面（2023.9.14）">
+<meta property="og:url" content="https://htx-rest.github.io/posts/dd83adbe.html">
+<meta property="og:site_name" content="鲸落">
+<meta property="og:description" content="面试官：wait()和sleep()的区别候选人：wait() 和 sleep() 是在Java中用于线程控制的两个不同方法，它们有以下主要区别：  用法和目的： wait() 是一个实例方法，它用于使当前线程等待，直到另一个线程调用相同对象上的 notify() 或 notifyAll() 方法来唤醒它。wait() 主要用于线程之间的协作和同步。 sleep() 是一个静态方法，它使当前线程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg">
+<meta property="article:published_time" content="2023-09-14T07:14:31.000Z">
+<meta property="article:modified_time" content="2023-09-14T08:42:19.563Z">
+<meta property="article:author" content="鲸落">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="海康威视">
+<meta property="article:tag" content="秋招">
+<meta property="article:tag" content="2024届">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://htx-rest.github.io/posts/dd83adbe.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '海康威视2024届秋招一面（2023.9.14）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-09-14 16:42:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4233300_xxm4hpxio1.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><div id="myscoll"></div><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">104</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youhuawenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="javascript:randomPost();"><i class="fa-fw iconfont icon-wode-zuji-copy"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxianyinpin"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/music/"><i class="fa-fw iconfont icon-tool"></i><span> 八音盒</span></a></li><li><a class="site-page child" href="/life/movies/"><i class="fa-fw iconfont icon-dianying"></i><span> 影院</span></a></li><li><a class="site-page child" href="/life/games/"><i class="fa-fw iconfont icon-youxi"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-baoxiang21"></i><span> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/box/gallery/"><i class="fa-fw iconfont icon-hualang"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/box/animation/"><i class="fa-fw iconfont icon-donghua"></i><span> 动画</span></a></li><li><a class="site-page child" href="/box/nav/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-tubiaozhizuomoban1"></i><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/social/fcircle/"><i class="fa-fw iconfont icon-iconfontzhizuobiaozhunbduan36"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/site/census/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站统计</span></a></li><li><a class="site-page child" href="/site/echarts/"><i class="fa-fw iconfont icon-tongji"></i><span> 文章统计</span></a></li><li><a class="site-page child" href="/site/time/"><i class="fa-fw iconfont icon-shalou"></i><span> 旧时光</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-geren"></i><span> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/personal/bb/"><i class="fa-fw iconfont icon-icon_liuyan"></i><span> 唠叨</span></a></li><li><a class="site-page child" href="/personal/love/"><i class="fa-fw iconfont icon-valentine_-email-love-message-send"></i><span> 恋爱小屋</span></a></li><li><a class="site-page child" href="/personal/about/"><i class="fa-fw iconfont icon-icon-lark-logo-old"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="鲸落"><span class="site-name">鲸落</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youhuawenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="javascript:randomPost();"><i class="fa-fw iconfont icon-wode-zuji-copy"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxianyinpin"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/music/"><i class="fa-fw iconfont icon-tool"></i><span> 八音盒</span></a></li><li><a class="site-page child" href="/life/movies/"><i class="fa-fw iconfont icon-dianying"></i><span> 影院</span></a></li><li><a class="site-page child" href="/life/games/"><i class="fa-fw iconfont icon-youxi"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-baoxiang21"></i><span> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/box/gallery/"><i class="fa-fw iconfont icon-hualang"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/box/animation/"><i class="fa-fw iconfont icon-donghua"></i><span> 动画</span></a></li><li><a class="site-page child" href="/box/nav/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-tubiaozhizuomoban1"></i><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/social/fcircle/"><i class="fa-fw iconfont icon-iconfontzhizuobiaozhunbduan36"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/site/census/"><i class="fa-fw iconfont icon-a-06-wangzhidaohang"></i><span> 网站统计</span></a></li><li><a class="site-page child" href="/site/echarts/"><i class="fa-fw iconfont icon-tongji"></i><span> 文章统计</span></a></li><li><a class="site-page child" href="/site/time/"><i class="fa-fw iconfont icon-shalou"></i><span> 旧时光</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-geren"></i><span> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/personal/bb/"><i class="fa-fw iconfont icon-icon_liuyan"></i><span> 唠叨</span></a></li><li><a class="site-page child" href="/personal/love/"><i class="fa-fw iconfont icon-valentine_-email-love-message-send"></i><span> 恋爱小屋</span></a></li><li><a class="site-page child" href="/personal/about/"><i class="fa-fw iconfont icon-icon-lark-logo-old"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">海康威视2024届秋招一面（2023.9.14）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-14T07:14:31.000Z" title="发表于 2023-09-14 15:14:31">2023-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-14T08:42:19.563Z" title="更新于 2023-09-14 16:42:19">2023-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>26分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="海康威视2024届秋招一面（2023.9.14）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>面试官：wait()和sleep()的区别<br>候选人：wait() 和 sleep() 是在Java中用于线程控制的两个不同方法，它们有以下主要区别：</p>
+<ol>
+<li>用法和目的：<ul>
+<li>wait() 是一个实例方法，它用于使当前线程等待，直到另一个线程调用相同对象上的 notify() 或 notifyAll() 方法来唤醒它。wait() 主要用于线程之间的协作和同步。</li>
+<li>sleep() 是一个静态方法，它使当前线程休眠指定的时间段（以毫秒为单位）或者等待另一个线程的执行。sleep() 主要用于在指定的时间段内暂停线程的执行。</li>
+</ul>
+</li>
+<li>使用位置：<ul>
+<li>wait() 方法通常在同步块或同步方法内部使用，因为它需要获取对象的监视器（锁）来等待或唤醒线程。</li>
+<li>sleep() 方法可以在任何地方使用，不需要在同步块或同步方法内部，因为它不会释放任何锁。</li>
+</ul>
+</li>
+<li>异常处理：<ul>
+<li>wait() 方法需要处理 InterruptedException 异常，因为它可能会在等待过程中被中断。</li>
+<li>sleep() 方法也需要处理 InterruptedException 异常，因为它也可以被中断。但是，通常情况下，sleep() 的中断检查会自动抛出异常。</li>
+</ul>
+</li>
+<li>对象锁：<ul>
+<li>wait() 方法会释放当前对象的锁，使当前线程进入等待状态，直到被唤醒。</li>
+<li>sleep() 方法不会释放任何锁，当前线程在睡眠期间仍然持有任何已经获得的锁。</li>
+</ul>
+</li>
+</ol>
+<p>总之，wait() 和 sleep() 用于不同的线程控制场景。wait() 主要用于线程之间的通信和协作，而 sleep() 主要用于线程的暂时休眠。在使用这两个方法时，需要根据具体的需求和上下文选择合适的方法。</p>
+<p>面试官：你都了解什么锁，可以介绍一下吗？<br>在Java中，有几种不同类型的锁，用于不同的多线程编程场景。以下是一些常见的锁类型：</p>
+<ol>
+<li>内置锁（Intrinsic Lock）：<ul>
+<li>也称为监视器锁（Monitor Lock）或synchronized锁。</li>
+<li>通过synchronized关键字实现。</li>
+<li>用于同步方法或同步代码块，使得多个线程无法同时访问被锁定的代码或方法。</li>
+<li>每个对象都有一个内置锁，只能由一个线程持有。其他线程需要等待锁的释放。</li>
+</ul>
+</li>
+<li>ReentrantLock：<ul>
+<li>是Java中的显式锁，位于java.util.concurrent.locks包中。</li>
+<li>提供了更多的灵活性和功能，相对于synchronized。</li>
+<li>允许线程获取锁的可中断和超时等待。</li>
+<li>支持公平性，可以选择等待时间最长的线程获得锁。</li>
+<li>支持条件变量，可以用于线程之间的协调。</li>
+</ul>
+</li>
+<li>读写锁（ReadWriteLock）：<ul>
+<li>也是在java.util.concurrent.locks包中。</li>
+<li>分为读锁和写锁，用于管理对共享资源的读写操作。</li>
+<li>多个线程可以同时持有读锁，但只能有一个线程持有写锁。</li>
+</ul>
+</li>
+<li>StampedLock：<ul>
+<li>是Java 8引入的锁，位于java.util.concurrent.locks包中。</li>
+<li>提供了乐观锁的机制，允许多个线程在没有争用的情况下同时访问共享资源。</li>
+<li>用于一些读多写少的场景，性能较好。</li>
+</ul>
+</li>
+<li>Semaphore：<ul>
+<li>是一种计数信号量，用于控制同时访问资源的线程数量。</li>
+<li>通常用于控制对有限资源的访问，例如线程池。</li>
+</ul>
+</li>
+<li>CountDownLatch：<ul>
+<li>是一种倒计数锁，用于等待一组线程完成执行。</li>
+<li>主要用于等待某个事件在多个线程之间发生。</li>
+</ul>
+</li>
+<li>CyclicBarrier：<ul>
+<li>也是一种协调多个线程的同步辅助类。</li>
+<li>不同于CountDownLatch，它可以被重复使用，当一组线程都达到某个状态后，可以重置并再次使用。</li>
+</ul>
+</li>
+<li>LockSupport：<ul>
+<li>是一个线程阻塞工具，可以用于线程的挂起和唤醒。</li>
+<li>比如，park()方法可以用于挂起线程，unpark()方法可以用于唤醒线程。</li>
+</ul>
+</li>
+</ol>
+<p>这些锁提供了不同的功能和性能特性，根据具体的多线程编程需求和场景，可以选择合适的锁来实现线程同步和协调。</p>
+<p>面试官： java语言的三大特性是什么？你可以介绍一下吗？</p>
+<ol>
+<li>继承（Inheritance）：<ul>
+<li>继承是一种机制，允许一个类（子类或派生类）从另一个类（父类或基类）继承属性和方法。子类可以继承父类的字段（属性）和方法，并且可以根据需要添加新的字段和方法或修改继承的方法。</li>
+<li>继承用于创建类之间的层次结构，使代码更有组织性和可维护性。</li>
+<li>Java中使用关键字 extends 来实现继承关系。</li>
+</ul>
+</li>
+<li>封装（Encapsulation）：<ul>
+<li>封装是一种将数据和方法组合成一个单一单元的机制，同时隐藏内部细节，只暴露必要的接口给外部使用。</li>
+<li>封装通过将类的字段（属性）设置为私有（private）并提供公共（public）方法来实现。这些方法允许外部代码访问和操作类的数据，但仍然可以维护数据的完整性和安全性。</li>
+<li>封装有助于隔离实现细节，提高了代码的可维护性和安全性。</li>
+</ul>
+</li>
+<li>多态（Polymorphism）：<ul>
+<li>多态是一种机制，允许不同的对象对相同的消息做出不同的响应。这意味着可以使用统一的接口来处理不同类的对象。</li>
+<li>多态有两种形式：编译时多态和运行时多态。编译时多态是指方法的重载（overloading）和方法的重写（overriding），而运行时多态是指通过继承和接口实现的多态性。</li>
+<li>多态提高了代码的灵活性和可扩展性，允许在运行时动态地确定对象的类型。</li>
+</ul>
+</li>
+</ol>
+<p>这些特性共同构建了Java的面向对象编程范式，使开发人员能够更轻松地创建复杂的程序，提高了代码的可维护性和可重用性。同时，它们也有助于降低代码的耦合度，使代码更容易理解和维护。</p>
+<p>面试官：你用过线程池吗？线程池的五个状态是什么？<br>线程池是一种用于管理和控制多线程任务执行的机制，它允许在需要执行任务时重用已创建的线程，减少了线程创建和销毁的开销，提高了系统的性能和资源利用率。<br>候选人：Java中的线程池有五个主要状态，这些状态描述了线程池中线程的生命周期和可用性：</p>
+<ol>
+<li>RUNNING（运行状态）：线程池处于运行状态时，可以接受新的任务并处理等待中的任务。新的任务会被分配给线程池中的空闲线程或创建新线程来处理。</li>
+<li>SHUTDOWN（关闭状态）：在这个状态下，线程池不再接受新的任务，但会继续处理队列中已存在的任务。线程池可以通过shutdown()方法进入这个状态。</li>
+<li>STOP（停止状态）：线程池进入停止状态后，不再接受新的任务，并且会尝试中断正在执行的任务。已经在队列中等待的任务会被移除而不会被执行。线程池可以通过shutdownNow()方法进入这个状态。</li>
+<li>TIDYING（整理状态）：线程池在这个状态下会执行一些清理工作，例如终止已经完成的任务。这个状态是从SHUTDOWN或STOP状态转换而来。</li>
+<li>TERMINATED（终止状态）：线程池终止状态表示线程池已经完全终止，不再接受任务，所有的任务都已经完成执行，所有的线程也已经被销毁。线程池可以从TIDYING状态转换到终止状态。</li>
+</ol>
+<p>线程池的状态转换通常是有限的，例如从RUNNING状态可以进入SHUTDOWN、STOP、或TIDYING状态，然后最终进入TERMINATED状态。状态的转换是由线程池内部管理的，开发者通常不需要手动干预状态的变化。</p>
+<p>面试官：你可以讲一下TCP的三次握手吗？<br>候选人： TCP的三次握手（Three-Way Handshake）是建立TCP连接的过程，它确保了通信双方的同步和连接的可靠性。下面是TCP的三次握手过程：</p>
+<ol>
+<li>第一次握手（SYN）：<ul>
+<li>客户端向服务器发送一个带有SYN（同步）标志的TCP数据包，表示客户端请求建立连接。</li>
+<li>客户端选择一个随机的起始序列号（ISN，Initial Sequence Number），用于后续的数据传输。</li>
+<li>客户端进入SYN_SENT状态，等待服务器的响应。</li>
+</ul>
+</li>
+<li>第二次握手（SYN+ACK）：<ul>
+<li>服务器接收到客户端的SYN数据包后，如果同意建立连接，会向客户端发送一个带有SYN和ACK（确认）标志的数据包。</li>
+<li>服务器也会选择一个随机的起始序列号，用于服务器向客户端发送数据。</li>
+<li>服务器进入SYN_RCVD状态。</li>
+</ul>
+</li>
+<li>第三次握手（ACK）：<ul>
+<li>客户端接收到服务器的SYN+ACK数据包后，会向服务器发送一个带有ACK标志的数据包，表示客户端接受连接。</li>
+<li>客户端和服务器都确认了对方的序列号，连接被建立。</li>
+<li>客户端进入ESTABLISHED状态，服务器在收到ACK后也进入ESTABLISHED状态。</li>
+</ul>
+</li>
+</ol>
+<p>至此，TCP连接建立完成，双方可以开始进行数据的传输。三次握手的目的是确保双方都具备发送和接收数据的能力，以及确认彼此已准备好进行通信。<br>需要注意的是，三次握手过程中的每个数据包都包含了初始序列号，这个序列号用于标识每个TCP数据包的顺序和完整性。三次握手的过程保证了通信双方的同步，防止了无关的连接请求进入系统。</p>
+<p>面试官：你了解设计模式吗？你用过哪些设计模式？可以介绍一下吗？<br>候选人：设计模式是一种在软件工程中常用的解决特定问题的通用方法。它们提供了一种在不同场景下重复使用的经验丰富的解决方案，有助于提高代码的可维护性、可扩展性和可重用性。以下是一些常见的设计模式：</p>
+<ol>
+<li>单例模式（Singleton Pattern）：确保一个类只有一个实例，并提供一个全局访问点。</li>
+<li>工厂模式（Factory Pattern）：定义一个用于创建对象的接口，但将对象的实际创建延迟到子类中。</li>
+<li>抽象工厂模式（Abstract Factory Pattern）：提供一个创建一系列相关或相互依赖对象的接口，而无需指定其具体类。</li>
+<li>建造者模式（Builder Pattern）：将一个复杂对象的构建过程与其表示分离，允许同一个构建过程创建不同的表示。</li>
+<li>原型模式（Prototype Pattern）：通过复制现有对象来创建新对象，而不是从头开始构建。</li>
+<li>适配器模式（Adapter Pattern）：允许将一个接口转换成另一个客户端所期望的接口。</li>
+<li>装饰器模式（Decorator Pattern）：动态地将责任附加到对象上，扩展其功能。</li>
+<li>代理模式（Proxy Pattern）：为其他对象提供一个代理，以控制对这个对象的访问。</li>
+<li>观察者模式（Observer Pattern）：定义了对象之间的一对多依赖关系，当一个对象状态改变时，所有依赖它的对象都会收到通知并自动更新。</li>
+<li>策略模式（Strategy Pattern）：定义了一系列算法，将每个算法封装起来，并使它们可以互换。</li>
+<li>命令模式（Command Pattern）：将请求封装成对象，以便参数化其他对象，队列请求或记录请求日志，并支持可撤销的操作。</li>
+<li>状态模式（State Pattern）：允许对象在其内部状态改变时改变其行为。</li>
+<li>访问者模式（Visitor Pattern）：将操作从对象结构中分离出来，使其可以添加新的操作而无需修改对象结构本身。</li>
+<li>备忘录模式（Memento Pattern）：在不破坏封装性的前提下，捕获对象的内部状态，并在对象之外保存这个状态。</li>
+<li>组合模式（Composite Pattern）：将对象组合成树形结构以表示部分-整体的层次结构。</li>
+<li>桥接模式（Bridge Pattern）：将抽象部分与实现部分分离，以便它们可以独立变化。</li>
+<li>迭代器模式（Iterator Pattern）：提供一种方法来访问一个聚合对象中各个元素，而又不暴露其内部表示。</li>
+<li>模板方法模式（Template Method Pattern）：定义一个操作中的算法的框架，而将一些步骤延迟到子类中实现。</li>
+<li>享元模式（Flyweight Pattern）：通过共享尽可能多的相似对象来最小化内存或计算开销。</li>
+<li>责任链模式（Chain of Responsibility Pattern）：将请求的发送者和接收者解耦，并将多个对象连成一条链，以便沿着这条链传递请求，直到有一个对象处理它为止。</li>
+</ol>
+<p>这些设计模式可以帮助开发人员解决各种不同类型的问题，并提供了一些通用的解决方案。选择适当的设计模式取决于具体的问题和需求。</p>
+<p>面试官：你了解Linux内核吗？你可以说一下Linux系统的启动流程吗？<br>候选人：Linux内核（Linux Kernel）是Linux操作系统的核心组件，它是操作系统的基本部分，负责管理系统的硬件资源和提供用户空间程序与硬件之间的通信桥梁。Linux内核的主要功能包括：</p>
+<ol>
+<li>硬件管理：Linux内核管理计算机的硬件资源，包括处理器、内存、磁盘、网络接口卡等。它负责分配和回收这些资源，以确保它们被有效地利用。</li>
+<li>文件系统管理：Linux内核支持多种文件系统，包括EXT4、XFS、Btrfs等。它负责管理文件和目录的创建、读取、写入、删除以及文件权限等。</li>
+<li>进程管理：Linux内核负责创建、调度和终止进程。它管理进程的生命周期，分配CPU时间片，并提供进程间通信的机制，如管道、套接字等。</li>
+<li>内存管理：Linux内核管理系统的内存资源，包括物理内存和虚拟内存。它负责内存的分配、回收、分页、交换等操作，以确保系统的稳定性和性能。</li>
+<li>设备驱动程序：Linux内核支持各种设备，包括硬件设备（如磁盘驱动器、显卡、网卡）和虚拟设备（如伪终端、虚拟文件系统）。内核提供设备驱动程序，使这些设备能够与操作系统交互。</li>
+<li>系统调用：Linux内核提供了一组系统调用，允许用户空间程序与内核进行通信。这些系统调用包括文件操作、进程管理、网络通信等。</li>
+<li>网络管理：Linux内核支持网络协议栈，包括TCP/IP协议。它负责管理网络连接、数据传输和路由等网络功能。</li>
+<li>安全性：Linux内核提供了安全性功能，包括权限控制、访问控制列表、SELinux等，以确保系统的安全性。</li>
+</ol>
+<p>Linux系统的启动流程通常包括以下关键步骤：</p>
+<ol>
+<li>BIOS/UEFI引导：<ul>
+<li>计算机通电后，首先执行基本输入/输出系统（BIOS）或统一固件接口（UEFI）中的引导程序。</li>
+<li>引导程序负责初始化硬件、检测启动设备，然后加载引导加载程序。</li>
+</ul>
+</li>
+<li>引导加载程序：<ul>
+<li>引导加载程序（Boot Loader）是一个小型程序，通常是GRUB（GRand Unified Bootloader）或LILO（Linux Loader）。</li>
+<li>引导加载程序的主要任务是加载操作系统的内核镜像。</li>
+</ul>
+</li>
+<li>内核初始化：<ul>
+<li>引导加载程序加载Linux内核镜像（通常位于/boot目录中）到内存中。</li>
+<li>内核初始化的第一步是解压内核，然后执行初始化代码。</li>
+<li>内核初始化期间，它负责初始化硬件、创建第一个用户进程（init进程或systemd）和文件系统挂载。</li>
+</ul>
+</li>
+<li>初始化进程启动：<ul>
+<li>在Linux系统中，第一个用户空间进程通常是init进程（或更现代的systemd）。</li>
+<li>init或systemd是用户空间的第一个进程，负责启动系统的各个子系统和服务。</li>
+</ul>
+</li>
+<li>运行级别切换（可选）：<ul>
+<li>在传统的SysV init系统中，系统可能会根据配置切换到不同的运行级别（如单用户模式、多用户模式等）。</li>
+<li>在现代的Linux系统中，通常使用systemd来管理服务和运行级别。</li>
+</ul>
+</li>
+<li>启动用户空间服务：<ul>
+<li>在启动过程中，init或systemd会启动各种用户空间服务和守护进程，如网络管理、日志记录、时间同步等。</li>
+<li>这些服务通常由系统的初始化脚本或系统管理工具配置。</li>
+</ul>
+</li>
+<li>登录管理器（可选）：<ul>
+<li>如果系统配置了图形用户界面（GUI），则登录管理器（如GDM、LightDM或SDDM）将提供图形登录界面，等待用户登录。</li>
+<li>如果未配置GUI，用户可以通过命令行界面登录。</li>
+</ul>
+</li>
+<li>用户登录：<ul>
+<li>用户可以使用用户名和密码登录系统，或者通过其他身份验证方式进行身份验证。</li>
+<li>一旦登录成功，用户将获得shell或图形桌面环境。</li>
+</ul>
+</li>
+<li>系统运行：<ul>
+<li>一旦系统启动完成，用户可以运行应用程序、管理文件、访问网络等。</li>
+<li>系统会持续运行，直到关机或重启。</li>
+</ul>
+</li>
+<li>关机或重启：<ul>
+<li>用户可以选择关机或重启系统。</li>
+<li>在关机或重启之前，系统会停止运行所有服务并保存数据。</li>
+</ul>
+</li>
+</ol>
+<p>请注意，Linux启动过程的具体细节和顺序可能会因Linux发行版和配置而异。上述流程是一种通用的描述，适用于大多数Linux系统。近年来，许多Linux系统已经转向使用systemd作为初始化系统，以简化和加速启动过程。</p>
+<p>面试官：Java中多线程的同步机制有哪些？<br>候选人：在Java中，同步机制用于确保多个线程安全地访问共享资源，以防止竞态条件和数据不一致性。以下是Java中的主要同步机制：</p>
+<ol>
+<li>synchronized关键字：<ul>
+<li>使用synchronized关键字可以获得对象级别的锁，也称为内置锁（Intrinsic Lock）。</li>
+<li>synchronized可用于方法或代码块，用于同步访问被锁定的方法或代码块。</li>
+<li>一个线程获得了对象的锁后，其他线程需要等待锁的释放，以确保互斥性。</li>
+<li>适用于简单的同步需求，但不够灵活。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">synchronizedMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 同步的方法体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">synchronized</span> (lockObject) &#123;</span><br><span class="line">    <span class="comment">// 同步的代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>ReentrantLock：<ul>
+<li>ReentrantLock是java.util.concurrent.locks包中的显式锁。</li>
+<li>相对于synchronized，它提供了更多的灵活性，如可中断等待、超时等待、公平性等。</li>
+<li>需要手动获取和释放锁，因此需要在try-finally块中使用以确保锁的释放。</li>
+<li>可以用于复杂的同步需求。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">someMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 同步的代码块</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>读写锁（ReadWriteLock）：<ul>
+<li>ReadWriteLock是一种锁的类型，它分为读锁和写锁，用于管理对共享资源的读写操作。</li>
+<li>多个线程可以同时获得读锁，但写锁是独占的。</li>
+<li>读锁用于允许多个线程同时读取共享资源，而写锁用于排他性写入。</li>
+<li>适用于读多写少的场景，可以提高性能。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReadWriteLock;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantReadWriteLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">ReadWriteLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantReadWriteLock</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    lock.readLock().lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 读取共享资源</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.readLock().unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    lock.writeLock().lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 写入共享资源</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.writeLock().unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>其他锁：<ul>
+<li>Java还提供了其他类型的锁，如StampedLock、Semaphore、CountDownLatch、CyclicBarrier等，用于不同的同步和协调需求。</li>
+</ul>
+</li>
+</ol>
+<p>选择合适的同步机制取决于具体的应用场景和需求。不同的锁提供了不同的特性，以满足不同的多线程编程需求。</p>
+<p>面试官：你了解云计算吗？可以说一下OpenStack吗？<br>候选人：云计算（Cloud Computing）是一种基于互联网的计算模型，它允许用户通过网络按需访问计算资源和服务，而无需拥有或管理物理计算设备。云计算已经成为现代信息技术领域的重要革命，它为个人、企业和组织提供了许多重要的优势和便利性。以下是云计算的一些关键特点和重要概念：</p>
+<ol>
+<li>按需自助服务（On-Demand Self-Service）：<ul>
+<li>云计算用户可以根据需要自助访问计算资源，如虚拟机、存储和应用程序，而无需提前购买或配置硬件设备。</li>
+</ul>
+</li>
+<li>广泛的网络访问（Broad Network Access）：<ul>
+<li>云计算资源可以通过互联网进行广泛的访问，用户可以使用各种设备（如电脑、手机、平板电脑）连接到云服务。</li>
+</ul>
+</li>
+<li>资源池（Resource Pooling）：<ul>
+<li>云提供商通常将计算和存储资源池化，多个用户共享这些资源。资源池化可以实现高效利用，提高资源利用率。</li>
+</ul>
+</li>
+<li>快速弹性扩展（Rapid Elasticity）：<ul>
+<li>用户可以根据需求快速扩展或缩减其云计算资源，而不需要进行复杂的硬件扩展或收缩操作。</li>
+</ul>
+</li>
+<li>受管理的服务（Managed Services）：<ul>
+<li>云提供商通常提供一系列受管理的服务，包括数据库、存储、安全性和监控等，以减轻用户管理和维护任务的负担。</li>
+</ul>
+</li>
+<li>可测量的服务（Measured Service）：<ul>
+<li>云计算服务通常提供资源使用度的监测和计费功能，用户只需为实际使用的资源付费。</li>
+</ul>
+</li>
+</ol>
+<p>云计算模型可以分为以下三个主要服务模型：</p>
+<ol>
+<li>基础设施即服务（IaaS）：<ul>
+<li>IaaS提供了虚拟化的计算资源，包括虚拟机、存储和网络。用户可以在这些资源上运行自己的操作系统和应用程序，有更多的控制权和自定义能力。</li>
+</ul>
+</li>
+<li>平台即服务（PaaS）：<ul>
+<li>PaaS提供了更高级别的服务，包括操作系统、开发框架和数据库。用户可以在这些平台上构建、部署和托管应用程序，而无需担心底层基础设施。</li>
+</ul>
+</li>
+<li>软件即服务（SaaS）：<ul>
+<li>SaaS提供完全托管的应用程序，用户可以通过互联网直接访问这些应用程序，而无需管理或控制底层基础设施。</li>
+</ul>
+</li>
+</ol>
+<p>云计算的优势包括灵活性、可扩展性、成本效益、高可用性和便捷性。它已经被广泛应用于各种领域，包括企业IT、数据分析、人工智能、物联网和Web应用程序开发等。许多云提供商（如Amazon Web Services、Microsoft Azure和Google Cloud Platform）竞相提供各种云计算服务，以满足不同用户的需求。</p>
+<p>OpenStack是一个开源的云计算平台，它提供了一系列的软件工具和组件，用于构建和管理公有云和私有云基础设施。OpenStack的目标是提供一个灵活、可扩展和可定制的云计算解决方案，以满足不同组织和企业的需求。以下是一些关键特点和组件：<br>关键特点：</p>
+<ol>
+<li>开源性：OpenStack是开源项目，可以免费使用和定制，社区活跃，不断进行改进和更新。</li>
+<li>模块化架构：OpenStack采用模块化的架构，各个组件可以独立部署和扩展，用户可以选择需要的组件来构建自己的云平台。</li>
+<li>多租户支持：OpenStack允许多个租户（组织或用户）共享同一云基础设施，每个租户可以拥有自己的虚拟资源，保持隔离。</li>
+<li>弹性伸缩：OpenStack支持弹性伸缩，用户可以根据需要快速扩展或缩减云资源。</li>
+<li>兼容性：OpenStack兼容多种虚拟化技术，包括KVM、VMware、Hyper-V等，以及各种操作系统和编程语言。</li>
+</ol>
+<p>核心组件：</p>
+<ol>
+<li>OpenStack由多个核心组件构成，每个组件负责不同的功能，主要包括：</li>
+<li>Nova：用于管理和调度虚拟机实例的计算服务。</li>
+<li>Neutron：提供网络服务，管理虚拟网络和连接。</li>
+<li>Cinder：用于提供块存储服务，支持虚拟机挂载块存储卷。</li>
+<li>Swift：提供对象存储服务，用于存储和检索非结构化数据。</li>
+<li>Glance：用于管理虚拟机镜像，支持虚拟机的快速部署。</li>
+<li>Keystone：提供身份认证和授权服务，管理用户、项目和权限。</li>
+<li>Horizon：OpenStack的Web用户界面，用于管理和监控云资源。</li>
+<li>Heat：用于自动化云资源的编排和编排服务。</li>
+<li>Ceilometer：用于监控和计量云资源使用情况的计量服务。</li>
+<li>Trove：用于数据库即服务（DBaaS）的管理和部署。</li>
+</ol>
+<p>OpenStack的灵活性和可定制性使其成为众多企业和组织构建和管理云基础设施的首选平台之一。它支持公有云、私有云和混合云部署，适用于各种场景，包括虚拟机部署、容器编排、大数据分析和物联网应用。许多云服务提供商和企业都使用OpenStack构建自己的云解决方案。</p>
+<p>面试官：说一下Java中重写和重载的区别？<br>候选人：在Java中，重写（Override）和重载（Overload）是两种不同的方法的特性。它们的区别在于以下几个方面：</p>
+<ol>
+<li>定义：<ul>
+<li>重写（Override）：重写指的是子类定义了一个与父类中具有相同名称、参数列表和返回类型的方法，并且子类方法要覆盖父类方法的行为。在重写中，子类提供了一个新的实现，父类的方法在子类中被替代。</li>
+<li>重载（Overload）：重载指的是在同一个类中可以定义多个具有相同名称但参数列表不同（包括参数类型、个数或顺序不同）的方法。在重载中，方法名相同，但方法的签名（参数列表）不同。</li>
+</ul>
+</li>
+<li>方法签名：<ul>
+<li>重写：重写方法的方法签名必须与父类方法的方法签名完全相同，包括方法名、参数类型和返回类型。</li>
+<li>重载：重载方法的方法签名必须在参数类型、个数或顺序上有所不同。</li>
+</ul>
+</li>
+<li>关系：<ul>
+<li>重写：重写通常用于子类覆盖父类的方法，以提供新的实现或修改父类方法的行为。在继承中使用。</li>
+<li>重载：重载通常用于同一个类中，可以定义多个同名方法，以便根据不同的参数来执行不同的操作。</li>
+</ul>
+</li>
+<li>返回类型：<ul>
+<li>重写：重写的方法必须具有与父类方法相同的返回类型或其子类类型（协变返回类型）。</li>
+<li>重载：重载的方法可以具有不同的返回类型。</li>
+</ul>
+</li>
+<li>编译时决定：<ul>
+<li>重写：重写是在运行时（动态绑定）确定调用哪个方法，根据对象的实际类型调用相应的方法。</li>
+<li>重载：重载是在编译时（静态绑定）确定调用哪个方法，根据参数列表的匹配来调用方法。</li>
+</ul>
+</li>
+</ol>
+<p>下面是一个简单的示例来说明重写和重载的区别：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Parent&#x27;s print method&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child&#x27;s print method&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child&#x27;s overloaded print method with parameter: &quot;</span> + x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Parent</span> <span class="variable">obj1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line">        obj1.print(); <span class="comment">// 调用子类的重写方法，输出 &quot;Child&#x27;s print method&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Child</span> <span class="variable">obj2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line">        obj2.print(<span class="number">10</span>); <span class="comment">// 调用子类的重载方法，输出 &quot;Child&#x27;s overloaded print method with parameter: 10&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在上面的示例中，Child 类重写了父类 Parent 的 print 方法，同时还重载了一个带有参数的 print 方法。注意，虽然在 obj1 中引用的是 Parent 类，但由于动态绑定，调用的是子类 Child 的重写方法。</p>
+<p>面试官：说一下网络的七层协议？<br>候选人：计算机网络的七层协议模型通常被称为OSI模型（Open Systems Interconnection Model），它将计算机网络协议分为七个不同的层级，每个层级负责不同的网络功能。这些层级从底层到顶层分别是：</p>
+<ol>
+<li>物理层（Physical Layer）：物理层是最底层的层级，负责处理数据传输的物理介质和硬件。它定义了数据传输的电气、光学和机械特性，包括传输介质、数据传输速率、电压等。物理层的任务是将数据从一个节点传输到另一个节点，而不关心数据的内容或格式。</li>
+<li>数据链路层（Data Link Layer）：数据链路层建立在物理层之上，负责在直接相连的两个节点之间传输数据。它包括两个子层：逻辑链路控制（Logical Link Control，LLC） 和 媒体访问控制（Media Access Control，MAC）。数据链路层处理帧的传输、错误检测和纠正、帧的流量控制等任务。</li>
+<li>网络层（Network Layer）：网络层负责在不同的网络之间进行数据路由和转发。它使用IP地址来标识不同的主机和网络，并确定数据包的最佳路径，以确保数据包从源节点到目标节点的可靠传输。常见的网络层协议包括IP（Internet Protocol）。</li>
+<li>传输层（Transport Layer）：传输层提供端到端的数据传输服务，负责数据的分段、流量控制、错误检测和纠正以及端口号的管理。它可以同时支持不同的传输协议，如TCP（Transmission Control Protocol）和UDP（User Datagram Protocol）。</li>
+<li>会话层（Session Layer）：会话层负责建立、管理和终止应用程序之间的通信会话。它提供了会话的控制和同步功能，以确保数据的有序传输和错误处理。</li>
+<li>表示层（Presentation Layer）：表示层负责数据的格式转换、数据加密和解密、数据压缩和解压缩等。它主要关注数据的语法和语义，以确保不同系统之间可以正确解释和处理数据。</li>
+<li>应用层（Application Layer）：应用层是计算机网络的最顶层，提供了各种网络应用和服务。它包括了各种应用程序、协议和用户接口，用于实现各种网络功能，如电子邮件、文件传输、远程登录等。</li>
+</ol>
+<p>这七个层级形成了一个层级化的模型，每个层级都提供特定的功能和服务，并通过下一层级来实现更高级别的功能。OSI模型是一个理论性的参考模型，用于帮助理解计算机网络协议和通信的工作原理。在实际应用中，通常使用TCP/IP协议栈，它是一个更简化的四层协议模型，包括网络接口层、网络层、传输层和应用层。</p>
+<p>面试官：什么叫做虚拟化？<br>候选人：虚拟化是一种技术或方法，通过它可以将计算资源、存储资源、网络资源或其他计算机硬件和软件资源抽象、隔离和管理，以实现更高效、灵活和可扩展的计算环境。虚拟化的主要目标是将物理资源转化为虚拟资源，使多个虚拟环境可以在同一台物理计算机上同时运行，而彼此互不干扰。<br>以下是虚拟化的一些关键概念和应用：</p>
+<ol>
+<li>虚拟机（Virtual Machine，VM）：虚拟机是一种虚拟化的实体，它是一个独立的、隔离的计算环境，包括操作系统、应用程序和资源。虚拟机可以在同一台物理服务器上同时运行多个，每个虚拟机都以为自己在独占整个计算资源。</li>
+<li>Hypervisor（虚拟机监控器）：Hypervisor是一种虚拟化管理软件，也被称为虚拟机监视器。它负责在物理硬件上创建和管理虚拟机，以及为虚拟机分配资源。&gt; 3. Hypervisor可以是类型1（裸机）或类型2（主机上运行的应用程序）。</li>
+<li>服务器虚拟化：服务器虚拟化是将一台物理服务器分割成多个虚拟机的过程。每个虚拟机可以运行不同的操作系统和应用程序，并在同一台物理服务器上共享硬件资源，从而提高硬件利用率和灵活性。</li>
+<li>存储虚拟化：存储虚拟化是将多个存储设备抽象为一个虚拟存储池的过程，使数据可以动态分布在不同的物理存储设备上，提高存储资源的利用率和可用性。</li>
+<li>网络虚拟化：网络虚拟化是将物理网络设备和资源抽象为虚拟网络的过程。它允许多个虚拟网络共享同一物理网络基础设施，实现网络资源的灵活分配和隔离。</li>
+<li>桌面虚拟化：桌面虚拟化是将用户的桌面计算环境抽象为虚拟桌面的过程。用户可以在不同设备上访问其个人桌面环境，提高了工作和数据的灵活性和安全性。</li>
+</ol>
+<p>虚拟化技术广泛应用于数据中心、云计算、虚拟化服务器、虚拟存储、虚拟网络、测试和开发环境等领域。它提供了更高的资源利用率、灵活性、可扩展性和容错能力，减少了硬件成本和管理复杂性。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://htx-rest.github.io">鲸落</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://htx-rest.github.io/posts/dd83adbe.html">https://htx-rest.github.io/posts/dd83adbe.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://htx-rest.github.io" target="_blank">鲸落</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E6%B5%B7%E5%BA%B7%E5%A8%81%E8%A7%86/">海康威视</a><a class="post-meta__tags" href="/tags/%E7%A7%8B%E6%8B%9B/">秋招</a><a class="post-meta__tags" href="/tags/2024%E5%B1%8A/">2024届</a></div><div class="post_share"><div class="social-share" data-image="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/assets/weplay.png" target="_blank"><img class="post-qr-code-img" src="/assets/weplay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/assets/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/assets/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/7a556a2f.html" title="美团2024届秋招笔试编程真题（2023.9.9）"><img class="cover" src="https://source.fomal.cc/img/default_cover_14.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">美团2024届秋招笔试编程真题（2023.9.9）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/860131f4.html" title="美团2024届秋招笔试第一场编程真题（2023.8.12）"><img class="cover" src="https://img0.baidu.com/it/u=4155835667,974645702&fm=253&fmt=auto&app=138&f=PNG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-13</div><div class="title">美团2024届秋招笔试第一场编程真题（2023.8.12）</div></div></a></div><div><a href="/posts/5b7a3f2a.html" title="美团2024届秋招笔试第三场编程真题（2023.8.26）"><img class="cover" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">美团2024届秋招笔试第三场编程真题（2023.8.26）</div></div></a></div><div><a href="/posts/f51f72fb.html" title="美团2024届秋招笔试第二场编程真题（2023.8.19）"><img class="cover" src="https://source.fomal.cc/img/default_cover_14.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">美团2024届秋招笔试第二场编程真题（2023.8.19）</div></div></a></div><div><a href="/posts/61f68248.html" title="美团2024届秋招笔试第四场编程真题（2023.9.2）"><img class="cover" src="https://img0.baidu.com/it/u=4155835667,974645702&fm=253&fmt=auto&app=138&f=PNG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-13</div><div class="title">美团2024届秋招笔试第四场编程真题（2023.9.2）</div></div></a></div><div><a href="/posts/7a556a2f.html" title="美团2024届秋招笔试编程真题（2023.9.9）"><img class="cover" src="https://source.fomal.cc/img/default_cover_14.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-09-14</div><div class="title">美团2024届秋招笔试编程真题（2023.9.9）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鲸落</div><div class="author-info__description">随波不逐流</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">104</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/htx-rest"><i class="fab fa-github"></i><span>前往小窝</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/assets/wenxin.jpg" target="_blank" title="微信"><i class="iconfont icon-weixin" style="color: #24292e;"></i></a><a class="social-icon" href="/assets/weixingongzhonghao.jpg" target="_blank" title="微信公众号"><i class="iconfont icon-weixingongzhonghao" style="color: #24292e;"></i></a><a class="social-icon" href="https://res.abeim.cn/api/qq/?qq=1656855152" target="_blank" title="QQ"><i class="iconfont icon-QQ" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1656855152@qq.com" target="_blank" title="QQ邮箱"><i class="iconfont icon-youxiang" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">摸鱼中！！！</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 鲸落</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_4233300_xxm4hpxio1.js"></script><script async src="/js/fps.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><script defer data-pjax src="/js/cat.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script defer src="/js/cursor.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="/js/title.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(http://p0.itc.cn/images03/20200525/332e1ea10c634cbfaf0dfc5b69d00a3c.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Docker/&quot;);" href="javascript:void(0);">Docker</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">Docker</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/377f4f7044fe49b0bb932f43ef4f4891.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Hexo魔改教程/&quot;);" href="javascript:void(0);">Hexo魔改教程</a><span class="categoryBar-list-count">12</span><span class="categoryBar-list-descr">Hexo魔改教程</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/0ed549edde2c4d5eaecc2824e753ca74.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/MySQL/&quot;);" href="javascript:void(0);">MySQL</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">MySQL</span></li><li class="categoryBar-list-item" style="background:url(http://p6.itc.cn/images03/20200525/8dedcdf6ace44a50a1deb6a9743821fe.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/面试题/&quot;);" href="javascript:void(0);">面试题</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">面试题</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/5f6cecf10ea04dec9a5d42bf9c4c3739.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/RabbitMQ/&quot;);" href="javascript:void(0);">RabbitMQ</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr">Redis</span></li><li class="categoryBar-list-item" style="background:url(http://p0.itc.cn/images03/20200525/332e1ea10c634cbfaf0dfc5b69d00a3c.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Redis/&quot;);" href="javascript:void(0);">Redis</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">Java笔试编程真题</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/377f4f7044fe49b0bb932f43ef4f4891.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Kafka/&quot;);" href="javascript:void(0);">Kafka</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">Java数据结构与算法</span></li><li class="categoryBar-list-item" style="background:url(http://p8.itc.cn/images03/20200525/0ed549edde2c4d5eaecc2824e753ca74.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/面试/&quot;);" href="javascript:void(0);">面试</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(http://p6.itc.cn/images03/20200525/8dedcdf6ace44a50a1deb6a9743821fe.jpeg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Java笔试编程真题/&quot;);" href="javascript:void(0);">Java笔试编程真题</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Java数据结构与算法/&quot;);" href="javascript:void(0);">Java数据结构与算法</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.9.0" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-14</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试编程真题（2023.9.9）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/7a556a2f.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img0.baidu.com/it/u=4155835667,974645702&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=889&amp;h=500" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第四场编程真题（2023.9.2）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/61f68248.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-06</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第二场编程真题（2023.8.19）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/f51f72fb.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-07</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第三场编程真题（2023.8.26）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/5b7a3f2a.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img0.baidu.com/it/u=4155835667,974645702&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=889&amp;h=500" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt="">美团2024届秋招笔试第一场编程真题（2023.8.12）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/860131f4.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt="">Java数据结构与算法</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/3cbc845.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt="">消息中间件面试题-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/eabb6106.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_300x168.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt="">kafka深入浅出，快速玩转分布式发布订阅消息系统</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/258353ca.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt="">Redis面试题-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6f83b1e4.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt="">Redis集群</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/37cf2cfd.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt="">Redis原理篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/d2ba1e3f.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">Rabbitmq消息中间件（二）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-12</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">Rabbitmq消息中间件（一）</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6bb2589.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt="">MySQL面试篇-参考回答</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/18ab1f25.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt="">MySQL进阶篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/11f76754.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt="">MySQL运维篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/592cf81.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt="">MySQL基础篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/337fcc87.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt="">Docker安装OpenResty</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/7eb663f5.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://pic2.zhimg.com/v2-d0a0172a71b6bc4ff18cd1f11bfa6b3b_r.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt="">Docker安装Canal</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/be6d66dc.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt="">Centos7安装Docker</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/a6573b44.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt="">Redis高级篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/d3404069.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_300x168.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt="">Redis实战篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/a6b15897.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://img2.baidu.com/it/u=595920241,2439700946&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-09-01</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt="">Redis基础篇</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/4604f75b.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
